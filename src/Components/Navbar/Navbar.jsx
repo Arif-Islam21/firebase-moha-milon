@@ -26,6 +26,9 @@ const Navbar = () => {
       <li>
         <NavLink to="/register">Register</NavLink>
       </li>
+      <li>
+        <NavLink to="/orders">Orders</NavLink>
+      </li>
     </>
   );
 
@@ -62,9 +65,8 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
       </div>
       <div className="navbar-end">
-        {user ? (
-          <span onClick={handleLogOut}>{user.email} logOut</span>
-        ) : (
+        {user && <span onClick={handleLogOut}>{user.email} logOut</span>}
+        {!user && (
           <Link to="/login" className="btn btn-sm">
             Login
           </Link>
